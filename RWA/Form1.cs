@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic.ApplicationServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RWA
 {
@@ -13,23 +14,34 @@ namespace RWA
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        public void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtUser.Text == user && txtPassword.Text == pasword)
             {
                 MessageBox.Show("welcome");
 
             }
-            if (string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            else if (string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
                 MessageBox.Show("wrong");
             }
-            if (txtUser.Text != user || txtPassword.Text != pasword)
+            else if (txtUser.Text != user || txtPassword.Text != pasword)
             {
                 MessageBox.Show("Wrong pasword");
+            }
+            if (txtUser.Text == user && txtPassword.Text == pasword)
+            {
+                Pass frmStudents = new Pass();
+                Hide();
+                frmStudents.ShowDialog();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Krivi podaci!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
