@@ -29,7 +29,7 @@ namespace RWA
             }
             if (txtUser.Text != user || txtPassword.Text != pasword)
             {
-                MessageBox.Show("Wrong password");
+                MessageBox.Show("Wrong pasword");
             }
         }
     }
